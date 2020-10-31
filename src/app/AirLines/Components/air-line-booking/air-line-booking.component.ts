@@ -50,7 +50,7 @@ export class AirLineBookingComponent implements OnInit {
 
   addpersons() {
     let personArray=this.AirLineBookingForm.controls.persons as FormArray;
-    console.log(this.AirLineBookingForm.controls.persons.get('0'));
+   // console.log(this.AirLineBookingForm.controls.persons.get('0'));
     let arrlength=personArray.length;
     if(arrlength<4)
     {
@@ -89,7 +89,7 @@ export class AirLineBookingComponent implements OnInit {
   maxDate()
   {
     this.year = this.dates.getFullYear();                        // YYYY
-    this.month = ("0"+(this.dates.getMonth()+3)).slice(-2);     // MM
+    this.month = ("0"+(this.dates.getMonth()+2)).slice(-2);     // MM
     this.day = ("0"+this.dates.getDate()).slice(-2);           // DD
     this.mxDate=(this.year +"-"+this.month +"-"+this.day);
   }
@@ -110,7 +110,7 @@ export class AirLineBookingComponent implements OnInit {
       date:['',Validators.required],
       persons:this.airlineBook.array([this.airlineBook.group({
         name:['',[Validators.required,Validators.minLength(4)]],
-        age:['',Validators.required],
+        age:['',[Validators.required,Validators.minLength(1)]],
         gender:['',Validators.required],
         seat:['',Validators.required]
       })])
@@ -155,13 +155,16 @@ export class AirLineBookingComponent implements OnInit {
 
   onSubmit(form:FormGroup)
   {
-    console.log('Ticket Booked Successfully');
+    alert('Hold on Buddy..!!! All Services will resume shortly');
+
+ //   console.log('Ticket Booked Successfully');
     this.passenger.type=form.value.type;
     this.passenger.source=form.value.source;
     this.passenger.destination=form.value.destination;
     this.passenger.date=form.value.date;
     this.passenger.persons=form.value.persons;
-       console.log(this.passenger.persons);
+ //      console.log(this.passenger.persons);
+ //      console.log(this.passenger.source+"-"+this.passenger.destination+"-"+this.passenger.date);
   }
 
 }

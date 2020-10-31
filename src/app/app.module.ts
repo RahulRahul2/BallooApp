@@ -10,8 +10,9 @@ import { HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AirLineBookingService } from '../app/AirLines/Services/air-line-booking.service';
 import { CharterBookingComponent } from './AirLines/Components/charter-booking/charter-booking.component';
-import { CustomerComponent } from './Customer/customer/customer.component';
-import { RegisterCustomerComponent } from './Customer/register-customer/register-customer.component';
+import { CustomerComponent } from './Customer/Components/customer/customer.component';
+import { RegisterCustomerComponent } from './Customer/Components/register-customer/register-customer.component';
+import { LoginCustomerComponent } from './Customer/Components/login-customer/login-customer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterCustomerComponent } from './Customer/register-customer/register
     AirLineBookingComponent,
     CharterBookingComponent,
     CustomerComponent,
-    RegisterCustomerComponent
+    RegisterCustomerComponent,
+    LoginCustomerComponent
   ],
   imports: [
     BrowserModule,

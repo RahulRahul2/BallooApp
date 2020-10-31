@@ -175,7 +175,7 @@
                 <p class="seat-space"></p>
                 <button class="seats" (click)="bookTickets('16D')"><span class="seat-num">16D</span></button>
             </div>
-        </div>
+        </div>               
       </div>
     
    <div class="forms">
@@ -199,7 +199,7 @@
                    </div>
                    <div class="form-priority1">         
                          <label class="form-priority2 form-priority6">Date: </label>
-                         <input type="date" [max]="mxDate" [min]="mnDate" class="form-priority4">
+                         <input type="date" formControlName="date" [max]="mxDate" [min]="mnDate" class="form-priority4">
                   </div>
             </div> 
             <div class="form-priority5">
@@ -211,8 +211,8 @@
                            <div class="form-element">
                               <label class="form-element2 form-element21">Name: </label>
                               <input type="text" formControlName="name" class="form-element1" required>
-                              <div *ngIf="persons.at(i).get('name').invalid && (persons.at(i).get('name').dirty || persons.at(i).get('name').touched)"
-                              class="error">
+                                   <div *ngIf="persons.at(i).get('name').invalid && (persons.at(i).get('name').dirty || persons.at(i).get('name').touched)"
+                                        class="error">
 
                                      <small *ngIf="persons.at(i).get('name').errors.required">
                                        Name is required.
@@ -225,6 +225,16 @@
                            <div class="form-element">
                             <label class="form-element2 form-element22">Age: </label>
                             <input type="text" formControlName="age" class="width:20px;" required>
+                            <div *ngIf="persons.at(i).get('age').invalid && (persons.at(i).get('age').dirty || persons.at(i).get('age').touched)"
+                               class="error">
+
+                                <small *ngIf="persons.at(i).get('age').errors.required">
+                                   Age is required.
+                                 </small>
+                                 <small *ngIf="persons.at(i).get('age').errors.minlength">
+                                   Name must be at least 4 characters long.
+                                 </small>
+                                </div>
                         </div>
                         <div class="form-element">
                             <label class="form-element2 form-element23">Gender: </label>
